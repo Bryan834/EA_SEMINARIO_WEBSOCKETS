@@ -7,8 +7,11 @@
     "strict": true,
     "esModuleInterop": true,
     "strictPropertyInitialization": false,
-    "lib": ["ES2015"], // Remueve "DOM" de aquí si está presente
-    "types": ["node"] // Asegúrate de incluir solo los tipos de Node.js si no usas DOM
+    "lib": ["ES2015"], 
+    "types": ["node"],
+    
+    // ESTA LÍNEA ES INDISPENSABLE PARA EVITAR LOS ERRORES QUE TUVISTE:
+    "skipLibCheck": true
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules"]

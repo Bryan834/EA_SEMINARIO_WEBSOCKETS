@@ -15,6 +15,9 @@ const initializeSocketEvents = (socket: Socket): void => {
 
     socket.on("message", (msg: IMessage) => {
         console.info(`[client](message) Received message: ${msg.content}`);
+        console.info(`- Content: ${msg.content}`);
+        console.info(`- Author: ${msg.author}`);
+        console.info(`- Date: ${msg.date}`);
     });
 };
 
@@ -30,7 +33,9 @@ initializeSocketEvents(socket);
 // Example usage: Send a message to the server
 const helloMessage: IMessage = {
     from: "Client",
-    content: "Hello from the client!"
+    content: "Hello from the client!",
+    date: new Date().toISOString(), 
+    author: "Client"
 };
 
 setTimeout(() => {

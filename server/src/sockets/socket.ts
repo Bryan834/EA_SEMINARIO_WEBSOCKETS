@@ -16,9 +16,15 @@ const initializeSocket = (server: http.Server) => {
       console.log('Connected client', socket.id);
 
       socket.on("message", (m: IMessage) => {
-          console.log("[server](message): %s", m.content);
-          socket.emit("message", m);
-      });
+        const messageWithMetadata: IMessage = {
+            ...m,
+            date: new Date().toISOString(),
+            author: m.from
+        };
+
+        console.log("[server](message): %s", messageWithMetadata.content);
+        socket.emit("message", messageWithMetadata);
+    });
   
       socket.on('disconnect', () => {
           console.log("Client disconnected", socket.id);
