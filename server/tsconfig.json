@@ -9,8 +9,6 @@
     "strictPropertyInitialization": false,
     "lib": ["ES2015"], 
     "types": ["node"],
-    
-    // ESTA LÍNEA ES INDISPENSABLE PARA EVITAR LOS ERRORES QUE TUVISTE:
     "skipLibCheck": true
   },
   "include": ["src/**/*"],
